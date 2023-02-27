@@ -14,7 +14,7 @@ export class App extends Component {
   };
 
   onLeaveFeedback = event => {
-    console.log('textContent', event.target.textContent);
+    // console.log('textContent', event.target.textContent);
     if (event.target.textContent === 'good')
       this.setState(state => ({
         good: state.good + 1,
