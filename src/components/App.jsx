@@ -12,10 +12,24 @@ export class App extends Component {
     positivePercentage: 0,
   };
 
-  onLeaveFeedback = () => {
-    this.setState(state => ({
-      good: state.good + 1,
+  onLeaveFeedback = (event) => {
+    console.log("textContent", event.target.textContent);
+    if (event.target.textContent === 'good')
+    this.setState(state => 
+      ({
+        good: state.good + 1,
     }));
+        if (event.target.textContent === 'neutral')
+    this.setState(state => 
+      ({
+        neutral: state.neutral + 1,
+    }));
+        if (event.target.textContent === 'bad')
+    this.setState(state => 
+      ({
+        bad: state.bad + 1,
+    }));
+
     this.countTotalFeedback();
   };
 
@@ -32,26 +46,6 @@ export class App extends Component {
     }));
   };
 
-  goodStateValueIncrement = () => {
-    this.setState(state => ({
-      good: state.good + 1,
-    }));
-    this.countTotalFeedback();
-  };
-
-  neutralStateValueIncrement = () => {
-    this.setState(state => ({
-      neutral: state.neutral + 1,
-    }));
-    this.countTotalFeedback();
-  };
-
-  badStateValueIncrement = () => {
-    this.setState(state => ({
-      bad: state.bad + 1,
-    }));
-    this.countTotalFeedback();
-  };
 
   render() {
     return (
