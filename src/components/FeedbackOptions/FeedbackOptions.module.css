@@ -1,20 +1,8 @@
-.title {
-  margin: 0;
-  margin-top: 50px;
-  font-size: 35px;
-}
-
 .buttonOttions:hover {
   background-color: rgb(83, 200, 235);
 }
 
-.buttonOttions {
+.buttonOptions {
   cursor: pointer;
   margin-right: 40px;
-}
-
-.statBlock {
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
 }
