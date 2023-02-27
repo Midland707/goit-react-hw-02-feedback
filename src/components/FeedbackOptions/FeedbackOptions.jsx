@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
-  <div>
+  <div className={css.buttonBlock}>
     {options.map((state, index) => (
       <button
         key={index}

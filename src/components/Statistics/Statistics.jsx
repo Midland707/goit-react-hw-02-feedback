@@ -9,11 +9,11 @@ export const Statistics = ({
   positivePercentage,
 }) => (
   <div className={css.statBlock}>
-    <span>Good: {good}</span>
-    <span>Neutral: {neutral}</span>
-    <span>Bad: {bad}</span>
-    <span>Total: {total}</span>
-    <span>Positive feedback: {positivePercentage} %</span>
+    {total > 0 && <span>Good: {good}</span>}
+    {total > 0 && <span>Neutral: {neutral}</span>}
+    {total > 0 && <span>Bad: {bad}</span>}
+    {total > 0 && <span>Total: {total}</span>}
+    {total > 0 && <span>Positive feedback: {positivePercentage} %</span>}
   </div>
 );
 
