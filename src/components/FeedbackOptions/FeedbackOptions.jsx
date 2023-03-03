@@ -17,11 +17,10 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape(
-    PropTypes.arrayOf({
-      good: PropTypes.number.isRequired,
-      neutral: PropTypes.number.isRequired,
-      bad: PropTypes.number.isRequired,
-    }).isRequired
-  ).isRequired,
+  options: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
