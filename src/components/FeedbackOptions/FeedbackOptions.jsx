@@ -3,12 +3,12 @@ import css from './FeedbackOptions.module.css';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div className={css.buttonBlock}>
-    {options.map((state, index) => (
+    {Object.keys(options).map(state => (
       <button
-        key={index}
+        key={state}
         className={css.buttonOptions}
         type="button"
-        onClick={onLeaveFeedback}
+        onClick={() => onLeaveFeedback(state)}
       >
         {state}
       </button>
@@ -17,5 +17,11 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.shape(
+    PropTypes.arrayOf({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number.isRequired,
+      bad: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };

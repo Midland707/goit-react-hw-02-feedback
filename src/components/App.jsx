@@ -13,30 +13,17 @@ export class App extends Component {
     positivePercentage: 0,
   };
 
-  onLeaveFeedback = event => {
-    // console.log('textContent', event.target.textContent);
-    if (event.target.textContent === 'good')
-      this.setState(state => ({
-        good: state.good + 1,
-      }));
-    if (event.target.textContent === 'neutral')
-      this.setState(state => ({
-        neutral: state.neutral + 1,
-      }));
-    if (event.target.textContent === 'bad')
-      this.setState(state => ({
-        bad: state.bad + 1,
-      }));
-
-    this.countTotalFeedback();
+  onLeaveFeedback = option => {
+    this.setState(prevstate => ({
+      [option]: prevstate[option] + 1,
+    }));
   };
 
-  countTotalFeedback() {
+  countTotalFeedback = () => {
     this.setState(state => ({
       total: state.good + state.neutral + state.bad,
     }));
-    this.countPositiveFeedbackPercentage();
-  }
+  };
 
   countPositiveFeedbackPercentage = () => {
     this.setState(state => ({
@@ -57,7 +44,7 @@ export class App extends Component {
       >
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={this.state}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
